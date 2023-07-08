@@ -1,12 +1,10 @@
 package huffman;
 
 /**
- * This class contains a generic queue class which supports 
- * isEmpty, size, enqueue, dequeue, and peek. It is implemented
- * using a circular linked list.
- * 
- * @author Ishaan Ivaturi
+ * This class contains a generic queue class which supports isEmpty, size, enqueue, dequeue, and peek
+ * It is implemented using a circular linked list.
  */
+
 public class Queue<T> {
     private Node<T> back;
     private int size;
@@ -15,7 +13,7 @@ public class Queue<T> {
         T data;
         Node<T> next;
 
-        public Node(T d, Node<T> n) {
+        public Node( T d, Node<T> n ) {
             data = d;
             next = n;
         }
@@ -24,19 +22,19 @@ public class Queue<T> {
     public boolean isEmpty() { return size == 0; }
     public int size() { return size; }
 
-    public void enqueue(T item) {
+    public void enqueue( T item ) {
         size++; // Enqueueing increases the size by 1
         
         // If there were no elements before, make a node that points to itself
-        if (size == 1) {
-            back = new Node<>(item, null);
+        if ( size == 1 ) {
+            back = new Node<>( item , null );
             back.next = back;
             return;
         }
         
         // Otherwise, add a node after back and update back
         // Represents adding at the end
-        back.next = new Node<>(item, back.next);
+        back.next = new Node<> (item , back.next );
         back = back.next;
     }
 
@@ -45,7 +43,7 @@ public class Queue<T> {
         size--; // Dequeueing decreases the size by 1
 
         // If there are no elements left, just make back null
-        if (size == 0) {
+        if ( size == 0 ) {
             back = null;
             return item;
         }
